@@ -36,7 +36,9 @@ Esta aplicación permite la publicación de perros y gatos en busca de un hogar 
 
    Una vez que ejecute la aplicación creará las entidades de la base datos, por lo que ahora si podemos realizar registros
 
-6. CREAR REGISTROS EN LA TABLA role
+   Para acceder al proyecto ir a la ruta **http://localhost:8080/**
+
+7. CREAR REGISTROS EN LA TABLA role
 
      Para poder acceso a la aplicación debemos de crear los roles iniciales así como usuarios y otros datos de prueba
 
@@ -61,6 +63,7 @@ Esta aplicación permite la publicación de perros y gatos en busca de un hogar 
 Con lo anterior podrás acceder mediante el usuario y contraseña "adno1234".
 
 ### DATOS DE ACCESO
+
 **- ADMINISTRADOR**
   
   USUARIO:
