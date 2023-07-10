@@ -4,6 +4,11 @@ Bienvenido al sistema Home 4 Pets, una aplicación para la adopción de perros y
 
 Esta aplicación permite la publicación de perros y gatos en busca de un hogar con personas amantes de los gatos y/o perros
 
+## REQUISITOS PREVIOS 
+
+- JDK 17
+- Cualquier versión de MySQL
+
 ## INICIACIÓN DEL PROYECTO
 1. **CLONAR O DESCARGAR EL PROYECTO**
 
