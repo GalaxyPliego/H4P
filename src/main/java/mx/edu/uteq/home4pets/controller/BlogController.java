@@ -2,6 +2,7 @@ package mx.edu.uteq.home4pets.controller;
 
 
 import mx.edu.uteq.home4pets.entity.Blog;
+import mx.edu.uteq.home4pets.entity.Pet;
 import mx.edu.uteq.home4pets.model.request.blog.BlogInsertDto;
 import mx.edu.uteq.home4pets.model.request.blog.BlogUpdateDto;
 import mx.edu.uteq.home4pets.model.responses.InfoToast;

@@ -74,6 +74,18 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
+    @Transactional(readOnly = false)
+    public boolean deletePetById(Long id) {
+        boolean flagDelete = false;
+        int petDeleted = petRepository.deletePetById(id);
+        System.out.println("petDeleted: " + petDeleted);
+        if (petDeleted != 0) {
+            flagDelete = true;
+        }
+        return flagDelete;
+    }
+
+    @Override
     public boolean create(PetInsertDto petDto, String imageName) {
 
         boolean flagInsert = false;

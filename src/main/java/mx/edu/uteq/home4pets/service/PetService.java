@@ -20,6 +20,8 @@ public interface PetService {
 
     Optional<Pet> findPetById(Long id);
 
+    boolean deletePetById(Long id);
+
     boolean create(PetInsertDto pet, String imageName);
 
     boolean update(PetUpdateDto pet);

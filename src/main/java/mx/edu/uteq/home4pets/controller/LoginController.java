@@ -17,7 +17,10 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class    LoginController {
+public class LoginController {
+
+
+
     private final UserAdoptameServiceImpl userAdoptameService;
 
     public LoginController(
@@ -27,7 +30,9 @@ public class    LoginController {
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout, Model model, Principal principal, RedirectAttributes flash) {
+    public String login(@RequestParam(value = "error", required = false) String error,
+                        @RequestParam(value = "logout", required = false) String logout, Model model, Principal principal,
+                        RedirectAttributes flash) {
         InfoToast info = new InfoToast();
         model.addAttribute("login", true);
         model.addAttribute("user", new UserInsertDto());
@@ -114,4 +119,3 @@ public class    LoginController {
     }
 
 }
-

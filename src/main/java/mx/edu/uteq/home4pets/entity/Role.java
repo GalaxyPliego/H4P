@@ -1,5 +1,7 @@
 package mx.edu.uteq.home4pets.entity;
 
+import lombok.Data;
+
 import java.util.Set;
 
 import javax.persistence.*;

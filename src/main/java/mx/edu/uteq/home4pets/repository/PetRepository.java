@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -22,5 +23,12 @@ public interface PetRepository extends PagingAndSortingRepository<Pet, Long>{
     @Modifying
     @Query("UPDATE Pet p SET p.availableAdoption = ?2 WHERE p.id = ?1")
     int changeAvailableAdoptionPet(Long id, Boolean availableAdoption);
+
+    //Metodo para eliminar una mascota
+    @Transactional
+    @Modifying
+    @Query("DELETE FROM Pet p WHERE p.id = ?1")
+    int deletePetById(Long id);
+
 
 }

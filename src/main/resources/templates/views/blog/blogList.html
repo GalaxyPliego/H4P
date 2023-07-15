@@ -55,7 +55,10 @@
                                     <td> [[${item.isPrincipal == true ? "Si" : "No"}]]</td>
                                     <td> [[${item.user.name}]]</td>
                                     <td class="text-end"> <a th:href="@{/blog/find_update/{id}/true (id=${item.id})}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                                        <a th:href="@{/blog/managment/details/{id}/false (id=${item.id})}" class="btn btn-info"><i class="bi bi-eye"></i></a></td>
+                                        <a th:href="@{/blog/managment/details/{id}/false (id=${item.id})}" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                        <a th:href="@{/blog/managment/deleteBlog/{id} (id=${item.id})}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                                    </td>
+
                                     
                                 </tr>
                             </tbody>

@@ -17,4 +17,6 @@ public interface BlogService {
     boolean updateBlog(BlogUpdateDto blog);
     List<Blog> findAllByIsPrincipal(Boolean isPrincipal);
 
+    boolean deleteBlogById(Long id);
+
 }

@@ -21,8 +21,6 @@ public class MainController {
     public String index(Model model) {
         List<Blog> blogs = blogService.findAllByIsPrincipal(true);
         boolean flagRegister = (blogs.size() > 0) ?  true : false;
-        // obtener la ruta actual
-        String path = System.getProperty("user.dir");
 
         model.addAttribute("listBlogs",blogs);
         model.addAttribute("flagRegister",flagRegister);

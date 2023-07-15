@@ -31,7 +31,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/adoptions")
-public class  AdoptionApplicationController {
+public class AdoptionApplicationController {
 
     private final GeneralInfoApp generalInfoApp;
 
@@ -276,4 +276,3 @@ public class  AdoptionApplicationController {
     }
 
 }
-

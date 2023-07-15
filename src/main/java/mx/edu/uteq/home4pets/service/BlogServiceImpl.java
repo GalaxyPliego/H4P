@@ -58,6 +58,17 @@ public class BlogServiceImpl implements BlogService{
         return blog;
     }
 
+    @Override
+    @Transactional(readOnly = false)
+    public boolean deleteBlogById(Long id) {
+        boolean flagDelete = false;
+        int blogDeleted = blogRepository.deleteBlogById(id);
+        System.out.println("blogDeleted: " + blogDeleted);
+        if (blogDeleted != 0) {
+            flagDelete = true;
+        }
+        return flagDelete;
+    }
 
     @Override
     public boolean saveBlog(BlogInsertDto blogDto, String imageName, String username) {

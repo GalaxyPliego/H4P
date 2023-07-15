@@ -55,15 +55,27 @@
                     <label class="label">Soy...</label>
                     <div>
                         <label class="radio" for="inlineRadio1"><input class="form-check-input" type="radio" name="rol"
-                                th:value="ROLE_ADOPTADOR" th:field="*{role.name}" >Adoptador</label>
+                                th:value="ROLE_ADOPTADOR" th:field="*{role.name}" onclick="mostrarDocumentos()" >Adoptador</label>
                         <label class="radio" for="inlineRadio2"><input class="form-check-input" type="radio" name="rol"
-                                th:value="ROLE_VOLUNTARIO" th:field="*{role.name}">Voluntario</label>
+                                th:value="ROLE_VOLUNTARIO" th:field="*{role.name}" onclick="ocultarDocumentos()">Voluntario</label>
                     </div>
                     <div class="form-text text-danger " th:if="${errors != null && errors.get('role') != null}">
                         <span th:each="error: ${errors.get('role')}">
                             [[${error}]]
                             <br>
                         </span>
+                    </div>
+
+                    <!-- Si selecciona el radio de adoptador que se muestre este formulario  -->
+                    <div id="container__docs" style="display: none">
+                        <div class="mb-3">
+                            <label for="ine" class="form-label">INE (Identificación Nacional de Elector)</label>
+                            <input type="file" class="form-control" id="ine" name="ine" accept=".pdf">
+                        </div>
+                        <div class="mb-3">
+                            <label for="comprobante" class="form-label">Comprobante de Domicilio</label>
+                            <input type="file" class="form-control" id="comprobante" name="comprobante" accept=".pdf">
+                        </div>
                     </div>
 
                   
@@ -76,7 +88,7 @@
               
             </div>
             <!--Inicio de sesion perro-->
-            <div class="form-container sign-in-container">
+            <div class="form-container sign-in-container" id="loginContainer">
 
                 <form th:action="@{/login}" method="post">
                     <div class="ear ear--left"></div>
@@ -150,7 +162,7 @@
 
                         <input class="password" type="password" name="password" autocomplete="off" placeholder="Contraseña" />
                         <br>
-                        <a  th:href="@{/views/email}" class="">¿Olvidaste tu contraseña?</a>
+                        <a  th:href="@{/forgot-password}" class="" >¿Olvidaste tu contraseña?</a>
                         <br>
                         <br>
                         <div>
@@ -160,6 +172,7 @@
                 </form>
 
             </div>
+
             <!--lado perro pelota-->
             <div class="overlay-container">
                 <div class="overlay">
@@ -239,6 +252,23 @@
 
             }
         }
+
+        //Función para mostrar y ocultar el contenedor del formulario con el id forgotPassContainer
+        function toggleContainers(containerToShow, containerToHide) {
+            var container1 = $(containerToShow);
+            var container2 = $(containerToHide);
+            container1.toggleClass("show");
+            container2.toggleClass("hide");
+        }
+
+        function mostrarDocumentos() {
+            document.getElementById('container__docs').style.display = 'block';
+        }
+
+        function ocultarDocumentos() {
+            document.getElementById('container__docs').style.display = 'none';
+        }
+
     </script>
 </body>
 

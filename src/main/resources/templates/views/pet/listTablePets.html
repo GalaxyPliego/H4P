@@ -24,7 +24,7 @@
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>
-                        <th class="text-center" scope="col"></th>
+                        <th class="text-center" scope="col">Foto</th>
                         <th class="text-center" scope="col">Nombre</th>
                         <th class="text-center" scope="col">Edad</th>
                         <th class="text-center" scope="col">Sexo</th>
@@ -69,6 +69,7 @@
                         <td class="">
                             <a sec:authorize="hasRole('ROLE_VOLUNTARIO')" class="btn btn-warning my-1" th:href="@{/pets/find_update/{id}(id=${item.id})}"><i class="bi bi-pencil-square"></i></a> &nbsp;
                             <a class="btn btn-info my-1" th:href="@{/pets/detail-admin/{id}(id=${item.id})}"><i class="bi bi-eye"></i></a>
+                            <a sec:authorize="hasAnyRole('ROLE_VOLUNTARIO', 'ROLE_ADMINISTRADOR')" class="btn btn-danger my-1" th:href="@{/pets/deletePet/{id}(id=${item.id})}"><i class="bi bi-trash"></i></a> &nbsp;
                         </td>
                     </tr>
                 </tbody>

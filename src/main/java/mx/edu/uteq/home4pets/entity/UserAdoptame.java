@@ -2,6 +2,7 @@ package mx.edu.uteq.home4pets.entity;
 
 import javax.persistence.*;
 
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
