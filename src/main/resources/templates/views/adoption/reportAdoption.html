@@ -58,8 +58,22 @@
                         <p th:if="${applicationInfo.closedDate == null}">
                             *******
                         </p>
+                        <!-- Sección para indicar que es un usuario verificado y de confianza -->
+                        <div>
+                            <p class="fw-bold">Usuario verificado</p>
+                            <span class="badge bg-success">Verificado</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12 col-sm-6 mb-2">
+                        <p class="fw-bold">¿Aceptó términos y condiciones?</p>
+                        <p>
+                            Este usuario ha aceptado los terminos y condiciones para adoptar a esta, mascota
                         </p>
                     </div>
+
                 </div>
             </div>
             <div class="col-12 mt-2" th:if="${applicationInfo.closedDate == null}" sec:authorize="hasRole('ROLE_VOLUNTARIO')" th:insert="~{fragments/formTracingAdoptionApplication :: petAdoptionForm}">
