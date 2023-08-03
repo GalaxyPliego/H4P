@@ -30,5 +30,7 @@ public interface PetRepository extends PagingAndSortingRepository<Pet, Long>{
     @Query("DELETE FROM Pet p WHERE p.id = ?1")
     int deletePetById(Long id);
 
-
+    //Metodo para obtener todas las mascotas de un usuario por su id
+    /*@Query("SELECT p FROM Pet p WHERE p.user = ?1")
+    Page<Pet> findAllByUser(int id, Pageable pageable);*/
 }

@@ -27,6 +27,9 @@ public class SessionControlAccess {
     @Column(name = "logout_date")
     private Date logoutDate;
 
+    @Column(name = "status")
+    private String status;
+
     public SessionControlAccess(String username, Boolean isActualSession, Date accessDate) {
         this.username = username;
         this.isActualSession = isActualSession;

@@ -38,6 +38,20 @@ public class UserAdoptame {
     @CreationTimestamp
     private Date createdAt;
 
+    //@Lob
+    //private byte[] inePdf;
+    @Column(columnDefinition = "TEXT")
+    private String ineImg;
+
+    //@Lob
+    //private byte[] comprobantePdf;
+    @Column(columnDefinition = "TEXT")
+    private String comprobanteImg;
+
+    //Status
+    @Column(name = "status")
+    private String status;
+
     @ManyToMany
     @JoinTable(
             name = "favorites_pets_users",
@@ -46,6 +60,17 @@ public class UserAdoptame {
 
     )
     private Set<Pet> favoritesPets = new HashSet<Pet>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Pet> pets;
+
+    public Set<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(Set<Pet> pets) {
+        this.pets = pets;
+    }
 
     @ManyToMany
     @JoinTable(
@@ -136,7 +161,28 @@ public class UserAdoptame {
     }
 
 
+    public void setIneImg(String ine) {
+        this.ineImg = ine;
+    }
 
+    public String getIneImg() {
+        return ineImg;
+    }
 
+    public String getComprobanteImg() {
+        return comprobanteImg;
+    }
+
+    public void setComprobanteImg(String comprobanteImg) {
+        this.comprobanteImg = comprobanteImg;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
 

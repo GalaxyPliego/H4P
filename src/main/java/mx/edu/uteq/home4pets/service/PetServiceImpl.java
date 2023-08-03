@@ -49,6 +49,12 @@ public class PetServiceImpl implements PetService {
         return petRepository.findAll(pageable);
     }
 
+    /*@Override
+    @Transactional(readOnly = true)
+    public Page<Pet> findAllByUser(int id, Pageable pageable) {
+        return petRepository.findAll(pageable);
+    }*/
+
     @Override
     @Transactional(readOnly = true)
     public Page<Pet> findPetsToAdopt(String type, String isAccepted, Pageable pageable) {

@@ -22,11 +22,12 @@ public class ImageManager {
         this.appProperties = appProperties;
     }
 
-    public String insertImage(MultipartFile imageFile){
+    public String insertImage(MultipartFile imageFile) throws IOException {
 
         String pathToSave = appProperties.getImageSavePath();
 
         if (pathToSave != null) {
+            Files.createDirectories(Paths.get(pathToSave));
 
             String uniqueNameFile = UUID.randomUUID()+"_"+imageFile.getOriginalFilename();
 

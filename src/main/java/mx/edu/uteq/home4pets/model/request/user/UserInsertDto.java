@@ -2,11 +2,15 @@ package mx.edu.uteq.home4pets.model.request.user;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+
+import lombok.Data;
 import mx.edu.uteq.home4pets.entity.Role;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+@Data
 public class UserInsertDto {
 
     @NotEmpty(message = "Debe de indicar el nombre del usuario")
@@ -29,6 +33,15 @@ public class UserInsertDto {
 
     @NotNull(message = "Debe de indicar el rol del usuario")
     private Role role;
+
+    //private MultipartFile inePdf;
+    private MultipartFile ineImg;
+    private String ine;
+    //private MultipartFile comprobantePdf;
+    private MultipartFile comprobanteImg;
+    private String comprobante;
+
+    private String status;
 
 
     public UserInsertDto() {
@@ -80,6 +93,34 @@ public class UserInsertDto {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public MultipartFile getIneImg() {
+        return ineImg;
+    }
+
+    public String getIne() {
+        return ine;
+    }
+
+    public void setIne(String ine) {
+        this.ine = ine;
+    }
+
+    public String getComprobante() {
+        return comprobante;
+    }
+
+    public void setComprobante(String comprobante) {
+        this.comprobante = comprobante;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

@@ -53,6 +53,9 @@ public class Pet {
 
     @ManyToMany(mappedBy = "favoritesPets")
     private Set<UserAdoptame> users;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserAdoptame user;
 
     @Override
     public String toString() {

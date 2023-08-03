@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 
+import java.io.IOException;
 import java.util.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,7 @@ public class UserAdoptameServiceImpl implements UserAdoptameService {
     }
 
     @Override
-    public boolean saveUser(UserInsertDto userDto) {
+    public boolean saveUser(UserInsertDto userDto) throws IOException {
         boolean validInsert = false;
 
         Optional<Role> rol = rolRepository.findRolByName(userDto.getRole().getName());
@@ -58,6 +59,12 @@ public class UserAdoptameServiceImpl implements UserAdoptameService {
                 BeanUtils.copyProperties(userDto, user);
                 user.setEnabled(true);
                 user.getRoles().add(rol.get());
+                System.out.println("INE_DTO ----> " + userDto.getIne());
+                user.setIneImg(userDto.getIne());
+                System.out.println("INE_USER ----> " + user.getIneImg());
+                System.out.println("COMPROBANTE_DTO ----> " + userDto.getComprobante());
+                user.setComprobanteImg(userDto.getComprobante());
+                System.out.println("COMPROBANTE_USER ----> " + user.getComprobanteImg());
 
                 try {
                     UserAdoptame userInsertedBd = userAdoptameRepository.save(user);

@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -75,7 +77,7 @@ public class BlogController {
     @PostMapping("/save")
     @Secured({"ROLE_ADMINISTRADOR"})
     public String save(@ModelAttribute("blog") BlogInsertDto blog, Authentication auth,
-                       Model model, @RequestParam("imageF") MultipartFile image, RedirectAttributes flash){
+                       Model model, @RequestParam("imageF") MultipartFile image, RedirectAttributes flash) throws IOException {
         InfoToast info = new InfoToast();
 
         Map<String, List<String>> validation = blogService.getValidationInsertBlog(blog);
@@ -227,7 +229,7 @@ public class BlogController {
     public String updateBlog (BlogUpdateDto blogUpdateDto , Authentication auth,
                               Model model,
                               @RequestParam("imageF") MultipartFile imageF,
-                              RedirectAttributes flash){
+                              RedirectAttributes flash) throws IOException {
 
 
 
